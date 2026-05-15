@@ -9,19 +9,12 @@ from functools import partial
 import numpy as np
 import onnxruntime as ort
 from fastapi import FastAPI, File, HTTPException, UploadFile
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 from PIL import Image
 
 from app.config import settings
 from app.schemas import PredictionResponse, HealthResponse
 from app.labels import IMAGENET_LABELS
-
-from fastapi.responses import RedirectResponse
-
-@app.get("/")
-async def root():
-    return RedirectResponse(url="/docs")
-
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -96,6 +89,11 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan,
 )
+
+
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/health", response_model=HealthResponse)

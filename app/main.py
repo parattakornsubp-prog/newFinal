@@ -16,6 +16,13 @@ from app.config import settings
 from app.schemas import PredictionResponse, HealthResponse
 from app.labels import IMAGENET_LABELS
 
+from fastapi.responses import RedirectResponse
+
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/docs")
+
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 

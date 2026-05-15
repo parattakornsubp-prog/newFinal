@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+python-multipart
+onnxruntime
+Pillow
+numpy
+pydantic
+pydantic-settings
+pytest
+pytest-mock
+httpx
+onnx
+sympy

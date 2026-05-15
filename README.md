@@ -1,3 +1,12 @@
+---
+title: Image API
+emoji: 🖼️
+colorFrom: blue
+colorTo: pink
+sdk: docker
+pinned: false
+---
+
 # Image Classification API
 
 A high-throughput Image Classification API using FastAPI and Vision Transformer (ViT) in ONNX format.

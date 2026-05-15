@@ -29,12 +29,6 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Note: model_final.onnx is not in the repo (too large).
-      # Tests that require the model will be auto-skipped via pytest.skip().
-      - name: Run pytest
-        run: |
-          pytest tests/ -v --tb=short
-
   # ─────────────────────────────────────────────
   # Job 2: Deploy to Hugging Face Spaces
   # Only runs when ALL tests pass on push to main

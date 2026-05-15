@@ -23,13 +23,13 @@ COPY --from=builder /install /usr/local
 
 # Copy application code
 COPY app/ ./app/
-COPY model_final.onnx .
+COPY model_quantized.onnx .
 
 # Non-root user for security
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
 USER appuser
 
-ENV MODEL_PATH=model_final.onnx \
+ENV MODEL_PATH=model_quantized.onnx \
     MAX_WORKERS=2 \
     MAX_FILE_SIZE_MB=10 \
     PYTHONUNBUFFERED=1 \
